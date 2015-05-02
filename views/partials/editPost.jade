@@ -1,7 +1,18 @@
-h2 Edit post
-label(for='title') Title: 
-input(ng-model='form.title', name='title')
-p Body:
-textarea(ng-model='form.text', cols='50', rows='15')
+h2 Edit Shift
 p
-  button(ng-click='editPost()') Edit Post
+  label(for='location') Location: 
+  input(ng-model='form.location', name='location')
+p
+  label(for='time') Time: 
+  input(ng-model='form.time', name='time')
+p 
+  label(for='note') Note: 
+  textarea(ng-model='form.note', cols='50', rows='15')
+p 
+  label(for='person') Person: 
+  input(ng-model='form.person', name='person')
+p 
+  label(for='door') Door: 
+  input(ng-model='form.door', name='door')
+p
+  button(ng-click='editPost()') Edit Shift

@@ -8,5 +8,11 @@ p
 p 
   label(for='note') Note: 
   textarea(ng-model='form.note', cols='50', rows='15')
+p 
+  label(for='person') Person: 
+  input(ng-model='form.person', name='person')
+p 
+  label(for='door') Door: 
+  input(ng-model='form.door', name='door')
 p
   button(ng-click='submitPost()') Submit Shift

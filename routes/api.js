@@ -100,3 +100,7 @@ exports.deletePost = function (req, res) {
   //     res.json(true)
   // })
 };
+
+exports.auth = function (req, res){
+  res.json(req.body.person == 'grandmother' && req.body.device == 'doorbell')
+}

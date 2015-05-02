@@ -5,12 +5,16 @@ table.table
     th Location
     th Time
     th Note
+    th Person
+    th Door
     th Actions
   tr(ng-repeat='post in posts')
     th(scope='row') 1
     td {{post.location}}
     td {{post.time}}
     td {{post.note}}
+    td {{post.person}}
+    td {{post.door}}
     td 
       a(href='/readPost/{{post.id}}') More
       |  - 
