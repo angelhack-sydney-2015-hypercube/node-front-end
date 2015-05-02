@@ -12,8 +12,6 @@ var net = require('net');
 var HOST = '52.24.10.214';
 var PORT = 3000;
 
-var client = new net.Socket();
-
 // GET
 
 exports.posts = function (req, res) {
@@ -52,10 +50,11 @@ exports.post = function (req, res) {
 // POST
 
 exports.addPost = function (req, res) {
+  var client = new net.Socket();
+  var json = { "request":"add","obj": req.body }
   client.connect(PORT, HOST, req, function() {
-    console.log('CONNECTED TO: ' + HOST + ':' + PORT);
     // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
-    client.write({ "request":"add","obj": req.body });
+    client.write(json);
   });
   //req.body.id = crypto.randomBytes(20).toString('hex');
   // var insert_req = new cps.InsertRequest(req.body);
