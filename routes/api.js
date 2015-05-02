@@ -34,7 +34,7 @@ exports.post = function (req, res) {
     if (err) return console.error(err)
     if(resp.results){
       res.json({
-        post: resp.results.document[0]
+        post: resp.results.document[0] 
       });
     } else {
       res.json(false);
