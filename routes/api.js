@@ -2,10 +2,24 @@
  * Serve JSON to our AngularJS client
  */
 
- var cps = require('cps-api')
- var crypto = require('crypto')
+var cps = require('cps-api')
+var crypto = require('crypto')
 
- var conn = new cps.Connection('tcp://cloud-us-0.clusterpoint.com:9007', 'docs', 'luigibertaco@gmail.com', 'unsecurePass123', 'document', '//document/id', {account: 100091});
+var conn = new cps.Connection('tcp://cloud-us-0.clusterpoint.com:9007', 'docs', 'luigibertaco@gmail.com', 'unsecurePass123', 'document', '//document/id', {account: 100091});
+
+var net = require('net');
+
+var HOST = '52.24.10.214';
+var PORT = 3000;
+
+var client = new net.Socket();
+client.connect(PORT, HOST, function() {
+
+  console.log('CONNECTED TO: ' + HOST + ':' + PORT);
+  // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
+  client.write('I am Chuck Norris!');
+
+});
 
 // GET
 
