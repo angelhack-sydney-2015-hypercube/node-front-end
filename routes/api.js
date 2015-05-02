@@ -102,6 +102,5 @@ exports.deletePost = function (req, res) {
 };
 
 exports.auth = function (req, res){
-  console.log(req.body)
   res.json(req.body.person == 'grandmother' && req.body.device == 'doorbell')
 }
