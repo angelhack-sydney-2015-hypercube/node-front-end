@@ -102,5 +102,25 @@ exports.deletePost = function (req, res) {
 };
 
 exports.auth = function (req, res){
-  res.json(req.body.person == 'grandmother' && req.body.device == 'doorbell')
+  var query = cps.Term(req.body.person, "person") + cps.Term(req.body.device, "door") + "~"+cps.Term("true", "taked")
+  console.log(query)
+  var search = new cps.SearchRequest(query,0,99999)
+  conn.sendRequest(search, function(err, resp){
+    if (err){
+      return console.error(err)
+    }else{
+      if(resp.results){
+        var client = new net.Socket();
+        resp.results.document[0].taked = true;
+        var json = { "request":"edit","obj": resp.results.document[0] }
+        client.connect(PORT, HOST, req, function() {
+          // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
+          client.write(JSON.stringify(json));
+        });
+        res.json(true)
+      }else{
+        res.json(false)
+      }
+    }
+  })
 }

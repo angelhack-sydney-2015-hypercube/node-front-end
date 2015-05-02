@@ -2,11 +2,14 @@
 
 /* Controllers */
 
-function IndexCtrl($scope, $http) {
-  $http.get('/api/posts').
-    success(function(data, status, headers, config) {
-      $scope.posts = data.posts;
-    });
+function IndexCtrl($scope, $http, $timeout) {
+  $scope.getIndex = function($scope, $http){
+    $http.get('/api/posts').
+      success(function(data, status, headers, config) {
+        $scope.posts = data.posts;
+      });
+  }
+  setInterval(function(){$scope.getIndex($scope, $http)}, 500);
 }
 
 function AddPostCtrl($scope, $http, $location) {
