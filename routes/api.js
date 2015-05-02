@@ -54,38 +54,49 @@ exports.addPost = function (req, res) {
   var json = { "request":"add","obj": req.body }
   client.connect(PORT, HOST, req, function() {
     // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
-    client.write(json);
+    client.write(JSON.stringify(json));
+    res.json(req.body);
   });
-  //req.body.id = crypto.randomBytes(20).toString('hex');
-  // var insert_req = new cps.InsertRequest(req.body);
-  // conn.sendRequest(insert_req, function (err, list_resp) {
-  //   if (err) return console.error(err); // Handle error
-  //   res.json(req.body);
-  // });
 };
 
 // PUT
 
 exports.editPost = function (req, res) {
+  var client = new net.Socket();
   req.body.id = req.params.id;
-  var  upd = new cps.UpdateRequest(req.body)
-  conn.sendRequest(upd, function(err, resp){
-    if (err)
-      res.json(err)
-    else
-      res.json(req.body);
-  })
+  var json = { "request":"edit","obj": req.body }
+  client.connect(PORT, HOST, req, function() {
+    // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
+    client.write(JSON.stringify(json));
+    res.json(req.body);
+  });
+  // req.body.id = req.params.id;
+  // var  upd = new cps.UpdateRequest(req.body)
+  // conn.sendRequest(upd, function(err, resp){
+  //   if (err)
+  //     res.json(err)
+  //   else
+  //     res.json(req.body);
+  // })
 };
 
 // DELETE
 
 exports.deletePost = function (req, res) {
+  var client = new net.Socket();
   req.body.id = req.params.id;
-  var  del = new cps.DeleteRequest(req.body)
-  conn.sendRequest(del, function(err, resp){
-    if (err)
-      res.json(err)
-    else
-      res.json(true)
-  })
+  var json = { "request":"delete","obj": req.body }
+  client.connect(PORT, HOST, req, function() {
+    // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
+    client.write(JSON.stringify(json));
+    res.json(true);
+  });
+  // req.body.id = req.params.id;
+  // var  del = new cps.DeleteRequest(req.body)
+  // conn.sendRequest(del, function(err, resp){
+  //   if (err)
+  //     res.json(err)
+  //   else
+  //     res.json(true)
+  // })
 };
