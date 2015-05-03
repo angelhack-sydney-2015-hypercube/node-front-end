@@ -102,7 +102,7 @@ exports.deletePost = function (req, res) {
 };
 
 exports.auth = function (req, res){
-  var query = cps.Term(req.body.person, "person") + cps.Term(req.body.device, "door") + "~"+cps.Term("true", "taked") + "~"+cps.Term("false", "taked")
+  var query = cps.Term(req.body.person, "person") + cps.Term(req.body.device, "door") + "~"+cps.Term("true", "taked") + "~"+cps.Term("true", "invalid")
   console.log(query)
   var search = new cps.SearchRequest(query,0,99999)
   conn.sendRequest(search, function(err, resp){
@@ -120,7 +120,7 @@ exports.auth = function (req, res){
         res.json(true)
       }else{
         var client2 = new net.Socket();
-        var json2 = { "request":"add","obj": {"taked":"false", "door":req.body.device, "person":req.body.person,"location":"!!! INVALID REQUEST !!!"}} 
+        var json2 = { "request":"add","obj": {"invalid":true, "door":req.body.device, "person":req.body.person,"location":"!!! INVALID REQUEST !!!"}}
         client2.connect(PORT, HOST, req, function() {
           // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
           client2.write(JSON.stringify(json2));

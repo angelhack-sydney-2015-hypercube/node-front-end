@@ -61,18 +61,18 @@
                   th Note
                   th Person
                   th Device
-                  th Taked
+                  th Taken
                   th Action
               tbody
-                tr(ng-repeat='post in posts')
+                tr(ng-repeat='post in posts', class="ng-class: {danger : post.invalid }")
                   td {{post.location}}
                   td {{post.time}}
                   td {{post.note}}
                   td {{post.person}}
                   td {{post.door}}
                   td 
-                    span.label.label-primary(ng-show='post.taked')
-                      {{post.taked}}
+                    span.label.label-primary(ng-show='post.taked') !!! Done !!!
+                    span.label.label-warning(ng-show='!post.taked && !post.invalid') waiting...
                   td
                     a(href='/readPost/{{post.id}}') More
                     |  - 
