@@ -111,7 +111,11 @@ exports.auth = function (req, res){
     }else{
       if(resp.results){
         var client = new net.Socket();
-        resp.results.document[0].taked = true;
+        if(resp.results.document[0].taked == 'maybe'){
+          resp.results.document[0].taked = true;
+        }else{
+          resp.results.document[0].taked = 'maybe';
+        }
         var json = { "request":"edit","obj": resp.results.document[0] }
         client.connect(PORT, HOST, req, function() {
           // Write a message to the socket as soon as the client is connected, the server will receive it as message from the client
