@@ -1,50 +1,333 @@
 doctype html
 html(lang='en', ng-app="myApp")
   head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    
-    base(href='/')
-
-    title HyperCube
-    // Bootstrap core CSS
-    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', rel='stylesheet')
-    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='/css/app.css')
-
-    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
-      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
-  body
-    // Fixed navbar
-    .navbar.navbar-default.navbar-static-top
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='#') HyperCube
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title INSPINIA | Static Tables
+    link(href='http://webapplayers.com/inspinia_admin-v2.0/css/bootstrap.min.css', rel='stylesheet')
+    link(href='http://webapplayers.com/inspinia_admin-v2.0/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='http://webapplayers.com/inspinia_admin-v2.0/css/plugins/iCheck/custom.css', rel='stylesheet')
+    link(href='http://webapplayers.com/inspinia_admin-v2.0/css/animate.css', rel='stylesheet')
+    link(href='http://webapplayers.com/inspinia_admin-v2.0/css/style.css', rel='stylesheet')
+  body.pace-done
+    .pace.pace-inactive
+      .pace-progress(data-progress-text='100%', data-progress='99', style='-webkit-transform: translate3d(100%, 0px, 0px); transform: translate3d(100%, 0px, 0px);')
+        .pace-progress-inner
+      .pace-activity
+    #wrapper
+      nav.navbar-default.navbar-static-side(role='navigation')
+        .sidebar-collapse
+          ul#side-menu.nav
+            li.nav-header
+              .dropdown.profile-element
+                span
+                  img.img-circle(alt='image', src='http://s3.amazonaws.com/hackathon.io/profiles/images/000/040/859/thumb/IMG_20150412_145411861_HDR_Fotor.jpg',width="48px")
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  span.clear
+                    span.block.m-t-xs
+                      strong.font-bold David Williams
+                    span.text-muted.text-xs.block
+                      | Manager 
+                      b.caret
+                ul.dropdown-menu.animated.fadeInRight.m-t-xs
+                  li
+                    a(href='#') Profile
+                  li
+                    a(href='#') Contacts
+                  li.divider
+                  li
+                    a(href='#') Logout
+              .logo-element
+                | IN+
             li
-              a(href='/') Shifts
-            li
-              a(href='/addPost') Create Shift
-        // /.nav-collapse
-    .container
-      // Main component for a primary marketing message or call to action
-      .row
-        block body
-    // /container
-
-    // Bootstrap core JavaScript
-    // ==================================================
-    // Placed at the end of the document so the pages load faster
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+              a(href='#')
+                i.fa.fa-th-large
+                span.nav-label Dashboards
+                span.fa.arrow
+            li.active
+              a(href='#')
+                i.fa.fa-table
+                span.nav-label Contractors
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse.in
+                li.active
+                  a(href='/') Shifts
+                  li.active
+                    a(href='/addPost') New Shift
+      #page-wrapper.gray-bg(style='min-height: 583px;')
+        .row.border-bottom
+          nav.navbar.navbar-static-top(role='navigation', style='margin-bottom: 0')
+            .navbar-header
+              a.navbar-minimalize.minimalize-styl-2.btn.btn-primary(href='#')
+                i.fa.fa-bars
+            ul.nav.navbar-top-links.navbar-right
+              li
+                span.m-r-sm.text-muted.welcome-message Welcome to HYPERCUBE
+              li.dropdown
+                a.dropdown-toggle.count-info(data-toggle='dropdown', href='#')
+                  i.fa.fa-envelope
+                  span.label.label-warning 16
+                ul.dropdown-menu.dropdown-messages
+                  li
+                    .dropdown-messages-box
+                      a.pull-left(href='#')
+                        img.img-circle(alt='image', src='./INSPINIA _ Static Tables_files/a7.jpg')
+                      .media-body
+                        small.pull-right 46h ago
+                        strong Mike Loreipsum
+                        |  started following 
+                        strong Monica Smith
+                        | . 
+                        br
+                        small.text-muted 3 days ago at 7:58 pm - 10.06.2014
+                  li.divider
+                  li
+                    .dropdown-messages-box
+                      a.pull-left(href='#')
+                        img.img-circle(alt='image', src='./INSPINIA _ Static Tables_files/a4.jpg')
+                      .media-body
+                        small.pull-right.text-navy 5h ago
+                        strong Chris Johnatan Overtunk
+                        |  started following 
+                        strong Monica Smith
+                        | . 
+                        br
+                        small.text-muted Yesterday 1:21 pm - 11.06.2014
+                  li.divider
+                  li
+                    .dropdown-messages-box
+                      a.pull-left(href='#')
+                        img.img-circle(alt='image', src='./INSPINIA _ Static Tables_files/profile.jpg')
+                      .media-body
+                        small.pull-right 23h ago
+                        strong Monica Smith
+                        |  love 
+                        strong Kim Smith
+                        | . 
+                        br
+                        small.text-muted 2 days ago at 2:30 am - 11.06.2014
+                  li.divider
+                  li
+                    .text-center.link-block
+                      a(href='#')
+                        i.fa.fa-envelope
+                        strong Read All Messages
+              li.dropdown
+                a.dropdown-toggle.count-info(data-toggle='dropdown', href='#')
+                  i.fa.fa-bell
+                  span.label.label-primary 8
+                ul.dropdown-menu.dropdown-alerts
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-envelope.fa-fw
+                        |  You have 16 messages
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-twitter.fa-fw
+                        |  3 New Workers
+                        span.pull-right.text-muted.small 12 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-upload.fa-fw
+                        |  Server Rebooted
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    .text-center.link-block
+                      a(href='#')
+                        strong See All Alerts
+                        i.fa.fa-angle-right
+              li
+                a(href='#')
+                  i.fa.fa-sign-out
+                  |  Log out
+        .row.wrapper.border-bottom.white-bg.page-heading
+          .col-lg-10
+            h2 StrataTurk Strata Management Company
+            ol.breadcrumb
+              li
+                a(href='/') Home
+              li
+                a Contractors
+              li.active
+                strong New Shifts
+          .col-lg-2
+            block body
+        .footer
+          .pull-right
+            | 10GB of 
+            strong 250GB
+            |  Free.
+          div
+            strong Copyright
+            |  Example Company © 2014-2015
+    script.
+      $(document).ready(function(){
+      $('.i-checks').iCheck({
+      checkboxClass: 'icheckbox_square-green',
+      radioClass: 'iradio_square-green',
+      });
+      });
+    script.
+      // Config box
+      // Enable/disable fixed top navbar
+      $('#fixednavbar').click(function () {
+      if ($('#fixednavbar').is(':checked')) {
+      $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+      $("body").removeClass('boxed-layout');
+      $("body").addClass('fixed-nav');
+      $('#boxedlayout').prop('checked', false);
+      if (localStorageSupport) {
+      localStorage.setItem("boxedlayout",'off');
+      }
+      if (localStorageSupport) {
+      localStorage.setItem("fixednavbar",'on');
+      }
+      } else {
+      $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+      $("body").removeClass('fixed-nav');
+      if (localStorageSupport) {
+      localStorage.setItem("fixednavbar",'off');
+      }
+      }
+      });
+      // Enable/disable fixed sidebar
+      $('#fixedsidebar').click(function () {
+      if ($('#fixedsidebar').is(':checked')) {
+      $("body").addClass('fixed-sidebar');
+      $('.sidebar-collapse').slimScroll({
+      height: '100%',
+      railOpacity: 0.9
+      });
+      if (localStorageSupport) {
+      localStorage.setItem("fixedsidebar",'on');
+      }
+      } else {
+      $('.sidebar-collapse').slimscroll({destroy: true});
+      $('.sidebar-collapse').attr('style', '');
+      $("body").removeClass('fixed-sidebar');
+      if (localStorageSupport) {
+      localStorage.setItem("fixedsidebar",'off');
+      }
+      }
+      });
+      // Enable/disable collapse menu
+      $('#collapsemenu').click(function () {
+      if ($('#collapsemenu').is(':checked')) {
+      $("body").addClass('mini-navbar');
+      SmoothlyMenu();
+      if (localStorageSupport) {
+      localStorage.setItem("collapse_menu",'on');
+      }
+      } else {
+      $("body").removeClass('mini-navbar');
+      SmoothlyMenu();
+      if (localStorageSupport) {
+      localStorage.setItem("collapse_menu",'off');
+      }
+      }
+      });
+      // Enable/disable boxed layout
+      $('#boxedlayout').click(function () {
+      if ($('#boxedlayout').is(':checked')) {
+      $("body").addClass('boxed-layout');
+      $('#fixednavbar').prop('checked', false);
+      $(".navbar-fixed-top").removeClass('navbar-fixed-top').addClass('navbar-static-top');
+      $("body").removeClass('fixed-nav');
+      $(".footer").removeClass('fixed');
+      $('#fixedfooter').prop('checked', false);
+      if (localStorageSupport) {
+      localStorage.setItem("fixednavbar",'off');
+      }
+      if (localStorageSupport) {
+      localStorage.setItem("fixedfooter",'off');
+      }
+      if (localStorageSupport) {
+      localStorage.setItem("boxedlayout",'on');
+      }
+      } else {
+      $("body").removeClass('boxed-layout');
+      if (localStorageSupport) {
+      localStorage.setItem("boxedlayout",'off');
+      }
+      }
+      });
+      // Enable/disable fixed footer
+      $('#fixedfooter').click(function () {
+      if ($('#fixedfooter').is(':checked')) {
+      $('#boxedlayout').prop('checked', false);
+      $("body").removeClass('boxed-layout');
+      $(".footer").addClass('fixed');
+      if (localStorageSupport) {
+      localStorage.setItem("boxedlayout",'off');
+      }
+      if (localStorageSupport) {
+      localStorage.setItem("fixedfooter",'on');
+      }
+      } else {
+      $(".footer").removeClass('fixed');
+      if (localStorageSupport) {
+      localStorage.setItem("fixedfooter",'off');
+      }
+      }
+      });
+      // SKIN Select
+      $('.spin-icon').click(function () {
+      $(".theme-config-box").toggleClass("show");
+      });
+      // Default skin
+      $('.s-skin-0').click(function () {
+      $("body").removeClass("skin-1");
+      $("body").removeClass("skin-2");
+      $("body").removeClass("skin-3");
+      });
+      // Blue skin
+      $('.s-skin-1').click(function () {
+      $("body").removeClass("skin-2");
+      $("body").removeClass("skin-3");
+      $("body").addClass("skin-1");
+      });
+      // Inspinia ultra skin
+      $('.s-skin-2').click(function () {
+      $("body").removeClass("skin-1");
+      $("body").removeClass("skin-3");
+      $("body").addClass("skin-2");
+      });
+      // Yellow skin
+      $('.s-skin-3').click(function () {
+      $("body").removeClass("skin-1");
+      $("body").removeClass("skin-2");
+      $("body").addClass("skin-3");
+      });
+      if (localStorageSupport) {
+      var collapse = localStorage.getItem("collapse_menu");
+      var fixedsidebar = localStorage.getItem("fixedsidebar");
+      var fixednavbar = localStorage.getItem("fixednavbar");
+      var boxedlayout = localStorage.getItem("boxedlayout");
+      var fixedfooter = localStorage.getItem("fixedfooter");
+      if (collapse == 'on') {
+      $('#collapsemenu').prop('checked','checked')
+      }
+      if (fixedsidebar == 'on') {
+      $('#fixedsidebar').prop('checked','checked')
+      }
+      if (fixednavbar == 'on') {
+      $('#fixednavbar').prop('checked','checked')
+      }
+      if (boxedlayout == 'on') {
+      $('#boxedlayout').prop('checked','checked')
+      }
+      if (fixedfooter == 'on') {
+      $('#fixedfooter').prop('checked','checked')
+      }
+      }
+    script#hiddenlpsubmitdiv(style='display: none;').
+    script.
+      try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i; } else { d.textContent=i; } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}

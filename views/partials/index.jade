@@ -1,5 +1,5 @@
-p There are {{posts.length}} posts
-table.table
+//- p There are {{posts.length}} posts
+//- table.table
   tr
     th #
     th Location
@@ -31,3 +31,52 @@ table.table
   a(href='/editPost/{{post.id}}') Edit
   |  - 
   a(href='/deletePost/{{post.id}}') Delete
+
+
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          h5 There are {{posts.length}} posts
+          .ibox-tools
+            a.collapse-link
+              i.fa.fa-chevron-up
+            a.dropdown-toggle(data-toggle='dropdown', href='http://webapplayers.com/inspinia_admin-v2.0/table_basic.html#')
+              i.fa.fa-wrench
+            ul.dropdown-menu.dropdown-user
+              li
+                a(href='http://webapplayers.com/inspinia_admin-v2.0/table_basic.html#') Config option 1
+              li
+                a(href='http://webapplayers.com/inspinia_admin-v2.0/table_basic.html#') Config option 2
+            a.close-link
+              i.fa.fa-times
+        .ibox-content
+          .table-responsive
+            table.table.table-striped
+              thead
+                tr
+                  th Location 
+                  th Time 
+                  th Note
+                  th Person
+                  th Device
+                  th Taked
+                  th Action
+              tbody
+                tr(ng-repeat='post in posts')
+                  td {{post.location}}
+                  td {{post.time}}
+                  td {{post.note}}
+                  td {{post.person}}
+                  td {{post.door}}
+                  td 
+                    span.label.label-primary(ng-show='post.taked')
+                      {{post.taked}}
+                  td
+                    a(href='/readPost/{{post.id}}') More
+                    |  - 
+                    a(href='/editPost/{{post.id}}') Edit
+                    |  - 
+                    a(href='/deletePost/{{post.id}}') Delete
+                
